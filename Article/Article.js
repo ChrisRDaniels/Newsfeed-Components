@@ -89,7 +89,7 @@ const data = [
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -112,3 +112,50 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+
+
+
+const body = document.querySelector(".articles")
+
+function createArticles(title, date, firstParagraph, secondParagraph, thirdParagraph){
+
+  const article = document.createElement("div");
+  const articleTitle = document.createElement("h2");
+  const articleDate = document.createElement("p");
+  const articleParagraph1 = document.createElement("p");
+  const articleParagraph2 = document.createElement("p");
+  const articleParagraph3 = document.createElement("p");
+  const button = document.createElement("span")
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(articleParagraph1);
+  article.appendChild(articleParagraph2);
+  article.appendChild(articleParagraph3);
+  article.appendChild(button);
+
+  article.classList.add("article");
+  articleDate.classList.add("date");
+  button.classList.add("expandButton");
+
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleParagraph1.textContent = firstParagraph;
+  articleParagraph2.textContent = secondParagraph;
+  articleParagraph3.textContent = thirdParagraph;
+  button.textContent = "click";
+
+  button.addEventListener("click", (e) => {
+    console.log("clicked");
+    article.classList.toggle("article-open");
+    article.classList.toggle("close");
+  })
+
+  return article;
+}
+
+const newsFeed = data.map(item => {
+  body.appendChild(createArticles(item.title,item.date,item.firstParagraph,item.secondParagraph,item.thirdParagraph));
+})
