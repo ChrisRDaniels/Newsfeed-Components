@@ -113,10 +113,6 @@ const data = [
 
 */
 
-
-
-
-
 const body = document.querySelector(".articles")
 
 function createArticles(title, date, firstParagraph, secondParagraph, thirdParagraph){
@@ -156,6 +152,6 @@ function createArticles(title, date, firstParagraph, secondParagraph, thirdParag
   return article;
 }
 
-const newsFeed = data.map(item => {
-  body.appendChild(createArticles(item.title,item.date,item.firstParagraph,item.secondParagraph,item.thirdParagraph));
+const newsFeed = data.map(i => {
+  body.appendChild(createArticles(i.title,i.date,i.firstParagraph,i.secondParagraph,i.thirdParagraph));
 })
