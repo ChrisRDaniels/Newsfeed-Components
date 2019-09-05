@@ -141,7 +141,7 @@ function createArticles(title, date, firstParagraph, secondParagraph, thirdParag
   articleParagraph1.textContent = firstParagraph;
   articleParagraph2.textContent = secondParagraph;
   articleParagraph3.textContent = thirdParagraph;
-  button.textContent = "click";
+  button.textContent = "Read More";
 
   button.addEventListener("click", (e) => {
     console.log("clicked");
